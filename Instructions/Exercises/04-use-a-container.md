@@ -21,13 +21,11 @@ Vous allez développer votre code en utilisant Visual Studio Code. Les fichiers 
 1. Démarrez Visual Studio Code.
 2. Ouvrez la palette (Maj+CTRL+P) et exécutez une commande **Git : Cloner** pour cloner le référentiel `https://github.com/MicrosoftLearning/mslearn-ai-services` vers un dossier local (peu importe quel dossier).
 3. Lorsque le référentiel a été cloné, ouvrez le dossier dans Visual Studio Code.
-4. Si nécessaire, attendez que les fichiers supplémentaires soient installés pour prendre en charge les projets de code C# dans le référentiel.
+4. Si nécessaire, attendez que les fichiers supplémentaires soient installés pour prendre en charge les projets de code C# dans le référentiel
 
     > **Remarque** : si vous êtes invité à ajouter des ressources requises pour générer et déboguer, sélectionnez **Not Now** (Pas maintenant).
 
 5. Développez le dossier `Labfiles/04-use-a-container`.
-
-Le code pour C# et pour Python a été fourni. Développez le dossier de votre langage préféré.
 
 ## Provisionner une ressource Azure AI Services
 
