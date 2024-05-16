@@ -2,9 +2,7 @@
 lab:
   title: Utiliser AI Personalizer avec des notebooks Visual Studio Code pour simuler une boucle
 ---
-> **Important** À compter de l’automne 2023, aucune nouvelle ressource Personalizer ne peut plus être créée.
-
-> **Remarque** Pour faire cet exercice, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true).
+> **Important** À compter de l’automne 2023, aucune nouvelle ressource Personalizer ne peut plus être créée. Utilisez ce référentiel uniquement pour référence si vous disposez d’une ressource Personalizer.
 
 Dans cet exercice, vous allez utiliser Azure AI Personalizer avec des notebooks dans Visual Studio Code pour simuler une boucle d’apprentissage.
 
