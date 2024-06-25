@@ -12,7 +12,7 @@ Les exercices sont destinés à être réalisés dans un environnement de labora
 
 ### Système d’exploitation de base (Windows 11)
 
-#### Windows 10
+#### Windows 11
 
 Installez Windows 11 et effectuez toutes les mises à jour.
 
@@ -22,7 +22,7 @@ Installez [Edge (Chromium)](https://microsoft.com/edge)
 
 ### SDK .NET Core
 
-1. Procédez au téléchargement et à l’installation depuis https://dotnet.microsoft.com/download (téléchargez le kit SDK .NET Core, pas seulement le runtime). Si vous exécutez les labos de ce cours sur votre propre ordinateur, vous aurez besoin d’installer .NET 7.0.
+1. Procédez au téléchargement et à l’installation depuis https://dotnet.microsoft.com/download (téléchargez le kit SDK .NET Core, pas seulement le runtime). Si vous exécutez les laboratoires dans ce cours sur votre propre ordinateur, vous devez disposer de .NET 7.0. Les laboratoires ont été testés sur .NET 7.0, mais la version 7.0 est actuellement hors support. Vous pouvez utiliser la version 8.0, mais il peut y avoir des problèmes mineurs. Vivement recommandé d’utiliser l’environnement hébergé.
 
 ### C++ Redistributable
 
