@@ -23,8 +23,6 @@ Vous allez développer votre code en utilisant Visual Studio Code. Les fichiers 
 
 5. Développez le dossier `Labfiles/03-monitor-ai-services`.
 
-Le code pour C# et pour Python a été fourni. Développez le dossier de votre langage préféré.
-
 ## Provisionner une ressource Azure AI Services
 
 Si vous n’en avez pas encore dans votre abonnement, vous devez configurer une ressource **Azure AI Services**.
