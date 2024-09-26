@@ -43,13 +43,16 @@ Si vous n’en avez pas encore dans votre abonnement, vous devez configurer une 
 
 ## Gérer les clés d'authentification
 
-Lorsque vous avez créé votre ressource Azure AI Services, deux clés d’authentification ont été générées. Vous pouvez les gérer dans le portail Azure ou en utilisant l'interface de ligne de commande (CLI) Azure.
+Lorsque vous avez créé votre ressource Azure AI Services, deux clés d’authentification ont été générées. Vous pouvez les gérer dans le portail Azure ou en utilisant l'interface de ligne de commande (CLI) Azure. 
 
-1. Dans le portail Azure, accédez à votre ressource Azure AI Services et affichez sa page **Clés et point de terminaison**. Cette page contient les informations dont vous aurez besoin pour vous connecter à votre ressource et l’utiliser à partir d’applications que vous développez. Plus précisément :
+1. Choisissez une méthode d’obtention de vos clés d’authentification et de votre point de terminaison : 
+
+    **À l’aide du portail Azure** : dans le portail Azure, accédez à votre ressource Azure AI Services et affichez sa page **Clés et point de terminaison**. Cette page contient les informations dont vous aurez besoin pour vous connecter à votre ressource et l’utiliser à partir d’applications que vous développez. Plus précisément :
     - *Point de terminaison* HTTP auquel les applications clientes peuvent envoyer des requêtes.
     - Deux *clés* qui peuvent être utilisées pour l’authentification (les applications clientes peuvent utiliser l’une des clés. Une pratique courante consiste à en utiliser une pour le développement, et une autre pour la production. Vous pouvez facilement régénérer la clé de développement une fois que les développeurs ont terminé leur travail pour empêcher l’accès continu.
     - *Emplacement* dans lequel la ressource est hébergée. Cela est nécessaire pour les demandes adressées à certaines API (mais pas toutes).
-2. Vous pouvez maintenant utiliser la commande suivante pour obtenir la liste des clés Azure AI Services, en remplaçant *&lt;resourceName&gt;* par le nom de votre ressource Azure AI Services et *&lt;resourceGroup&gt;* par le nom du groupe de ressources dans lequel vous l’avez créée.
+
+    **À l’aide de la ligne de commande** : vous pouvez également utiliser la commande suivante pour obtenir la liste des clés Azure AI Services. Dans Visual Studio Code, ouvrez un nouveau terminal. Ensuite, collez la commande suivante en remplaçant *&lt;resourceName&gt;* par le nom de votre ressource Azure AI Services et *&lt;resourceGroup&gt;* par le nom du groupe de ressources dans lequel vous l’avez créée.
 
     ```
     az cognitiveservices account keys list --name <resourceName> --resource-group <resourceGroup>
@@ -57,15 +60,15 @@ Lorsque vous avez créé votre ressource Azure AI Services, deux clés d’aut
 
     La commande retourne une liste des clés de votre ressource Azure AI Services : il existe deux clés nommées **key1** et **key2**.
 
-    > **Conseil** : Si vous ne vous êtes pas encore authentifié auprès d’Azure CLI, exécutez `az login` et connectez-vous à votre compte.
+    > **Conseil** : si vous ne vous êtes pas encore authentifié auprès d’Azure CLI, exécutez d’abord `az login` et connectez-vous à votre compte.
 
-3. Pour tester votre service Azure AI, vous pouvez utiliser **curl**, un outil de ligne de commande pour les requêtes HTTP. Dans le dossier **02-ai-services-security**, ouvrez **rest-test.cmd** et modifiez la commande **curl** qu’il contient (montrée ci-dessous), en remplaçant *&lt;yourEndpoint&gt;* et *&lt;yourKey&gt;* par l’URI et la clé **Key1** de votre point de terminaison pour utiliser l’API Analyse de texte dans votre ressource Azure AI services.
+2. Pour tester votre service Azure AI, vous pouvez utiliser **curl**, un outil de ligne de commande pour les requêtes HTTP. Dans le dossier **02-ai-services-security**, ouvrez **rest-test.cmd** et modifiez la commande **curl** qu’il contient (montrée ci-dessous), en remplaçant *&lt;yourEndpoint&gt;* et *&lt;yourKey&gt;* par l’URI et la clé **Key1** de votre point de terminaison pour utiliser l’API Analyse de texte dans votre ressource Azure AI services.
 
     ```bash
-    curl -X POST "<yourEndpoint>/language/:analyze-text?api-version=2023-04-01" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: 81468b6728294aab99c489664a818197" --data-ascii "{'analysisInput':{'documents':[{'id':1,'text':'hello'}]}, 'kind': 'LanguageDetection'}"
+    curl -X POST "<yourEndpoint>/language/:analyze-text?api-version=2023-04-01" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <your-key>" --data-ascii "{'analysisInput':{'documents':[{'id':1,'text':'hello'}]}, 'kind': 'LanguageDetection'}"
     ```
 
-4. Enregistrez vos modifications, puis exécutez la commande suivante :
+3. Enregistrez les changements apportés. Dans le terminal, accédez au dossier « 02-ai-services-security ». (**Remarque** : vous pouvez le faire en cliquant avec le bouton droit sur le dossier « 02-ai-services-security » dans votre explorateur, puis en sélectionnant *Ouvrir dans le terminal intégré*). Exécutez ensuite la commande suivante :
 
     ```
     ./rest-test.cmd
@@ -73,7 +76,7 @@ Lorsque vous avez créé votre ressource Azure AI Services, deux clés d’aut
 
 La commande retourne un document JSON contenant des informations sur la langue détectée dans les données d’entrée (qui doivent être anglais).
 
-5. Si une clé devient compromise ou si les développeurs n’ont plus besoin d’accès, vous pouvez la régénérer dans le portail ou à l’aide d’Azure CLI. Exécutez la commande suivante pour régénérer votre **clé key1** (en remplaçant *&lt;resourceName&gt;* et *&lt;resourceGroup&gt;* par les informations de votre ressource).
+4. Si une clé devient compromise ou si les développeurs n’ont plus besoin d’accès, vous pouvez la régénérer dans le portail ou à l’aide d’Azure CLI. Exécutez la commande suivante pour régénérer votre **clé key1** (en remplaçant *&lt;resourceName&gt;* et *&lt;resourceGroup&gt;* par les informations de votre ressource).
 
     ```
     az cognitiveservices account keys regenerate --name <resourceName> --resource-group <resourceGroup> --key-name key1
@@ -81,8 +84,8 @@ La commande retourne un document JSON contenant des informations sur la langue d
 
 La liste des clés de votre ressource Azure AI Services est retournée : notez que **key1** a changé depuis la dernière récupération.
 
-6. Réexécutez la commande **rest-test** avec l’ancienne clé (vous pouvez utiliser la flèche **^** sur votre clavier pour parcourir en boucle les commandes précédentes) : vous pouvez maintenant constater qu’elle échoue.
-7. Modifiez la commande *curl* dans **rest-test.cmd** en remplaçant la clé par la nouvelle valeur **key1**, puis enregistrez les modifications. Réexécutez ensuite la commande **rest-test** et vérifiez qu’elle réussit.
+5. Réexécutez la commande **rest-test** avec l’ancienne clé (vous pouvez utiliser la flèche **^** sur votre clavier pour parcourir en boucle les commandes précédentes) : vous pouvez maintenant constater qu’elle échoue.
+6. Modifiez la commande *curl* dans **rest-test.cmd** en remplaçant la clé par la nouvelle valeur **key1**, puis enregistrez les modifications. Réexécutez ensuite la commande **rest-test** et vérifiez qu’elle réussit.
 
 > **Conseil** : Dans cet exercice, vous avez utilisé les noms complets des paramètres Azure CLI, tels que **--resource-group**.  Vous pouvez également utiliser des alternatives plus courtes, telles que **-g**, pour rendre vos commandes moins détaillées (mais un peu plus difficile à comprendre).  La [référence des commandes CLI d’Azure AI Services](https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest) répertorie les options de paramètre pour chaque commande CLI d’Azure AI Services.
 
@@ -113,7 +116,7 @@ Tout d’abord, vous devez créer un coffre de clés et ajouter un *secret* pour
 5. Sélectionnez **+ Générer/Importer** et ajoutez un nouveau secret avec les paramètres suivants :
     - **Options de chargement** : Manuelle
     - **Nom** : AI-Services-Key *(il est important que ceci corresponde exactement car plus tard, vous allez exécuter du code qui récupère le secret en fonction de ce nom)*
-    - **Valeur** : *votre clé **key1** Azure AI Services*
+    - **Valeur du secret** : *votre clé **key1** Azure AI Services*
 6. Sélectionnez **Créer**.
 
 ### Créer un principal du service
@@ -167,16 +170,16 @@ Vous êtes maintenant prêt à utiliser l’identité du principal de service da
 
     ```
     dotnet add package Azure.AI.TextAnalytics --version 5.3.0
-    dotnet add package Azure.Identity --version 1.5.0
-    dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.3
+    dotnet add package Azure.Identity --version 1.12.0
+    dotnet add package Azure.Security.KeyVault.Secrets --version 4.6.0
     ```
 
     **Python**
 
     ```
     pip install azure-ai-textanalytics==5.3.0
-    pip install azure-identity==1.5.0
-    pip install azure-keyvault-secrets==4.2.0
+    pip install azure-identity==1.17.1
+    pip install azure-keyvault-secrets==4.8.0
     ```
 
 3. Affichez le contenu du dossier **keyvault-client**, et notez qu’il contient un fichier pour les paramètres de configuration :
