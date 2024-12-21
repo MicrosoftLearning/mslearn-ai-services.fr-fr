@@ -10,8 +10,6 @@ L’utilisation de services Azure AI hébergés dans Azure permet aux développ
 
 La plupart des API d’Azure AI Services peuvent être empaquetées et déployées dans un *conteneur*, ce qui permet aux organisations d’héberger Azure AI Services dans leur propre infrastructure ; par exemple, dans des serveurs Docker locaux, des Azure Container Instances ou des clusters Azure Kubernetes Services. Les Azure AI Services en conteneur doivent communiquer avec un compte Azure AI Services basé sur Azure pour prendre en charge la facturation ; mais les données d’application ne sont pas transmises au service principal, et les organisations ont un meilleur contrôle sur la configuration de déploiement de leurs conteneurs, ce qui permet des solutions personnalisées pour l’authentification, l’extensibilité et d’autres considérations.
 
-> **Remarque** : Pour certains utilisateurs, les conteneurs ne se déploient pas correctement et les appels à ces conteneurs échouent. Ces problèmes sont en cours d’examen. Ce labo sera mis à jour dès que le problème aura été résolu.
-
 ## Cloner le référentiel dans Visual Studio Code
 
 Vous allez développer votre code en utilisant Visual Studio Code. Les fichiers de code de votre application ont été fournis dans un référentiel GitHub.
