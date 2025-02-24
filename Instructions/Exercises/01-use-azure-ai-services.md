@@ -30,7 +30,7 @@ Le code pour C# et pour Python a été fourni. Développez le dossier de votre l
 Azure AI Services est un ensemble de services cloud qui encapsulent des fonctionnalités d’intelligence artificielle que vous pouvez incorporer dans vos applications. Vous pouvez provisionner des ressources Azure AI Services individuelles pour des API spécifiques (par exemple, **Langue** ou **Vision**), ou vous pouvez provisionner une seule ressource **Azure AI Services** qui fournit l’accès à plusieurs API Azure AI Services via un point de terminaison et une clé uniques. Dans ce cas, vous allez utiliser une seule ressource **Azure AI Services**.
 
 1. Ouvrez le portail Azure à l’adresse `https://portal.azure.com` et connectez-vous avec le compte Microsoft associé à votre abonnement Azure.
-2. Dans la barre de recherche supérieure, recherchez *Azure AI services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI services avec les paramètres suivants :
+2. Dans la barre de recherche supérieure, recherchez *Azure AI Services*, sélectionnez **Compte multiservice Azure AI Services** et créez une ressource avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*
     - **Groupe de ressources** : *Choisissez ou créez un groupe de ressources. (Si vous utilisez un abonnement restreint, vous n’avez peut-être pas l’autorisation de créer un groupe de ressources. Dans ce cas, utilisez le groupe fourni.)*
     - **Région** : *choisissez n’importe quelle région disponible*
