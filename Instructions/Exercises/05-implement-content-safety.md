@@ -29,7 +29,7 @@ Si vous n’en avez pas encore, vous devez configurer une ressource **Sécurité
 
 ## Utiliser les boucliers d’invite d’Azure AI Sécurité du Contenu
 
-Dans cet exercice, vous allez utiliser Azure AI Studio pour tester les boucliers d’invite de Sécurité du Contenu avec deux exemples d’entrées. L’un simule une invite utilisateur, et l’autre un document avec du texte potentiellement dangereux incorporé dans celui-ci.
+Dans cet exercice, vous allez utiliser Azure AI Studio pour tester les boucliers d’invite de Sécurité du Contenu avec deux exemples d’entrées. L’un simule une invite utilisateur, et l’autre un document avec du texte potentiellement dangereux incorporé dans celui-ci.
 
 1. Dans un autre onglet de navigateur, ouvrez la page Sécurité du Contenu d’[Azure AI Studio](https://ai.azure.com/explore/contentsafety) et connectez-vous.
 1. Sous **Modérer le contenu d’un texte**, sélectionnez **Faire un essai**.

@@ -28,7 +28,7 @@ Vous allez développer votre code en utilisant Visual Studio Code. Les fichiers 
 Si vous n’en avez pas encore dans votre abonnement, vous devez configurer une ressource **Azure AI Services**.
 
 1. Ouvrez le portail Azure à l’adresse `https://portal.azure.com` et connectez-vous avec le compte Microsoft associé à votre abonnement Azure.
-2. Dans la barre de recherche supérieure, recherchez *Azure AI services*, sélectionnez **Azure AI Services** et créez une ressource de compte multiservices Azure AI services avec les paramètres suivants :
+2. Dans la barre de recherche supérieure, recherchez *Azure AI Services*, sélectionnez **Compte multiservice Azure AI Services** et créez une ressource avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*
     - **Groupe de ressources** : *Choisissez ou créez un groupe de ressources. (Si vous utilisez un abonnement restreint, vous n’avez peut-être pas l’autorisation de créer un groupe de ressources. Dans ce cas, utilisez le groupe fourni.)*
     - **Région** : *choisissez n’importe quelle région disponible*
