@@ -110,6 +110,61 @@ De nombreuses API Azure AI Services couramment utilisées sont disponibles dan
 
 4. Vérifiez que la commande retourne un document JSON contenant des informations sur les sentiments détectés dans les deux documents d’entrée (qui doivent être positifs et négatifs, dans cet ordre).
 
+## Dépannage
+
+> **Remarque** :  
+> L’affichage de votre conteneur comme « En cours d’exécution » dans le portail Azure ne **signifie pas** toujours qu’il est prêt à traiter les demandes. Si vous essayez d’utiliser `curl` et que vous obtenez des erreurs telles que :
+>
+> ```text
+> curl: (52) Empty reply from server
+> curl: (56) Recv failure: Connection reset by peer
+> ```
+>
+> Cela peut signifier que le conteneur n’a pas été démarré avec les paramètres ou l’environnement appropriés, ou qu’il manque des fichiers de modèle ou un accès Internet pour le téléchargement du modèle.
+
+### Alternative : déploiement du conteneur à l’aide d’Azure CLI
+
+Vous pouvez essayer la commande suivante (remplacez les points de terminaison `rg-name`, `container-name`, `ApiKey` et `Billing` par vos valeurs) :
+
+```bash
+az container create \
+  --resource-group <rg-name> \
+  --name <container-name> \
+  --image mcr.microsoft.com/azure-cognitive-services/sentiment \
+  --ports 5000 \
+  --dns-name-label ai102sentimentdemo \
+  --environment-variables Eula=accept \
+  --secure-environment-variables ApiKey=<your_api_key> Billing=<your_billing_endpoint> \
+  --cpu 2 --memory 4 \
+  --os-type Linux
+```
+Après le déploiement, vous pouvez tester le point de terminaison (remplacez <ACI_IP> le cas échéant) :
+```bash
+curl -X POST "http://<ACI_IP>:5000/text/analytics/v3.0/sentiment?model-version=latest" \
+-H "Content-Type: application/json" \
+-d '{
+  "documents": [
+    {
+      "id": "1-en",
+      "language": "en",
+      "text": "The performance was amazing! The sound could have been clearer."
+    },
+    {
+      "id": "2-en",
+      "language": "en",
+      "text": "The food and service were unacceptable. While the host was nice, the waiter was rude and food was cold."
+    }
+  ]
+}'
+```
+**Essayer** :
+
+    If v3.1 endpoints do not work, try using v3.0 or v3.1-preview.1 with above cmd.
+
+    Always check the /status endpoint and container logs for model loading messages (look for: Model loaded from /input/TextAnalytics/v3.x/Sentiment).
+
+    If you still encounter issues, running the container locally with Docker may help to diagnose local vs. cloud issues.
+
 ## Nettoyer
 
 Si vous avez terminé les tests de votre instance de conteneur, vous devez la supprimer.
