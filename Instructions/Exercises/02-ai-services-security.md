@@ -97,6 +97,9 @@ Vous pouvez développer des applications qui consomment Azure AI Services à l
 
 Tout d’abord, vous devez créer un coffre de clés et ajouter un *secret* pour la clé d’Azure AI Services.
 
+Choisissez une méthode pour créer un coffre de clés et ajouter un secret :
+
+#### À l’aide du portail Azure
 1. Notez la valeur **key1** de votre ressource Azure AI Services (ou copiez-la dans le Presse-papiers).
 2. Dans le Portail Azure, dans la page **Accueil**, sélectionnez le bouton **&#65291;Créer une ressource**, recherchez *Key Vault* et créez une ressource **Key Vault** avec les paramètres suivants :
 
@@ -118,6 +121,33 @@ Tout d’abord, vous devez créer un coffre de clés et ajouter un *secret* pour
     - **Nom** : AI-Services-Key *(il est important que ceci corresponde exactement car plus tard, vous allez exécuter du code qui récupère le secret en fonction de ce nom)*
     - **Valeur du secret** : *votre clé **key1** Azure AI Services*
 6. Sélectionnez **Créer**.
+
+#### Utilisation de Azure CLI
+Vous pouvez également utiliser l’interface de ligne de commande Azure pour créer un coffre de clés et ajouter un secret.
+
+1. Ouvrez un terminal dans Visual Studio Code.
+2. Créez un coffre de clés en exécutant la commande suivante, en remplaçant `<keyVaultName>`, `<resourceGroup>` et `<location>` par le nom de votre coffre de clés, le nom du groupe de ressources et la région Azure (par exemple, `eastus`) :
+
+    ```
+    az keyvault create \
+      --name <key-vault-name> \
+      --resource-group <resource-group-name> \
+      --location <region> \
+      --sku standard \
+      --enable-rbac-authorization false
+    ```
+    L’indicateur `--enable-rbac-authorization false` garantit que le modèle d’autorisation est défini sur « Stratégie d’accès au coffre » (valeur par défaut).
+
+3. Ajoutez votre clé de services Azure AI en tant que secret dans le coffre de clés. Remplacez `<keyVaultName>` par le nom de votre coffre de clés et `<your-key1-value>` par la valeur de votre clé de services Azure AI :
+
+    ```
+    az keyvault secret set \
+    --vault-name <key-vault-name> \
+    --name AI-Services-Key \
+    --value <your-azure-ai-services-key>
+    ```
+
+Vous avez créé un coffre de clés et stocké votre clé de services Azure AI en tant que secret nommé `AI-Services-Key`.
 
 ### Créer un principal du service
 
