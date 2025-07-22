@@ -1,4 +1,6 @@
-# Développer des solutions d’IA générative dans Azure
+# Développer des solutions IA dans Azure
+
+> **REMARQUE** : Ce référentiel est archivé et n’est plus tenu à jour. Consultez le parcours d’apprentissage des [applications d’IA générative](https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/) et le [référentiel de laboratoire associé](https://github.com/MicrosoftLearning/mslearn-ai-studio), ou la [documentation Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/).
 
 Les exercices dans ce référentiel sont conçus pour vous fournir une expérience d’apprentissage pratique qui va vous permettre d’explorer les tâches courantes que les développeurs effectuent lors de la création de solutions d’IA générative sur Microsoft Azure.
 
